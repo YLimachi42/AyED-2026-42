@@ -6,6 +6,6 @@
 
 Contenidos:
 * Etapa 1: Fundamentos de Programación
-* Etapa 2
+* Etapa 2: Sentencias de Control
 * Etapa 3
 * Etapa 4
