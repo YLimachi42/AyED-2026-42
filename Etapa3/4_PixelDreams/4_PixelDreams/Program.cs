@@ -26,7 +26,7 @@ namespace _4_PixelDreams
             {
                 Console.WriteLine($"Top {z + 1}: {puntos[z]}");
             }
-            Console.WriteLine($"Primer lugar: {puntos[0]}\nUltimo lugar: {puntos[jugadores]}");
+            Console.WriteLine($"Primer lugar: {puntos[0]}\nUltimo lugar: {puntos[jugadores - 1]}");
             Console.ReadKey();
         }
     }
