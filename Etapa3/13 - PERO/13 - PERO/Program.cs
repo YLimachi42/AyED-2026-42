@@ -37,7 +37,7 @@ namespace _13___PERO
                         misiones[cantidadMisiones, 0] = cantidadMisiones + 1;
                         Console.Write("1_Hagwarts\n2_La casa del viejo\n3_El laboratorio\nIngrese el mapa para explorar: ");
                         misiones[cantidadMisiones, 1] = int.Parse(Console.ReadLine());
-                        misiones[cantidadMisiones, 2] = rand.Next(1, 71);
+                        misiones[cantidadMisiones, 2] = rand.Next(1, 3);
                         Console.Write("1_Bajo\n2_Medio\n3_Alto\n4_Imposible\n5_Muerte Segura\nIngrese el nivel de peligro: ");
                         misiones[cantidadMisiones, 3] = int.Parse(Console.ReadLine());
                         misiones[cantidadMisiones, 4] = 0;
@@ -179,9 +179,47 @@ namespace _13___PERO
                         break;
                     case 5:
                         // Punto 5: Misión con más objetos a extraer
+                        int masObjetos = 0;
+                        for (int y = 0; y < cantidadMisiones - 1; y++)
+                        {
+                            if (masObjetos < misiones[y, 2])
+                            {
+                                masObjetos = misiones[y, 2];
+                            }
+                            
+                        }
+                        Console.WriteLine($"La mision/es con más objetos es:");
+                        for (int y = 0; y < cantidadMisiones; y++)
+                        {
+                            if (masObjetos == misiones[y, 2])
+                            {
+                                Console.WriteLine($"ID: {misiones[y, 0]} con {masObjetos} objetos");
+                            }
+                        }
                         break;
                     case 6:
                         // Punto 6: Promedio de peligro por mapa
+                        int cantidadMapa1 = 0, promedioMapa1 = 0, cantidadMapa2 = 0, promedioMapa2 = 0, cantidadMapa3 = 0, promedioMapa3 = 0;
+                        for (int x = 0; x < cantidadMisiones; x++)
+                        {
+                            if (misiones[x, 1] == 1)
+                            {
+                                cantidadMapa1++;
+                                promedioMapa1 += misiones[x, 3];
+                            }
+                            if (misiones[x, 1] == 2)
+                            {
+                                cantidadMapa2++;
+                                promedioMapa2 += misiones[x, 3];
+                            }
+                            if (misiones[x, 1] == 3)
+                            {
+                                cantidadMapa3++;
+                                promedioMapa3 += misiones[x, 3];
+                            }
+                        }
+                        int promedio1 = promedioMapa1 / cantidadMapa1;
+                        Console.Write("Promedio Hagwarts: " + promedio1);
                         break;
                     case 7:
                         // Punto 7: Filtrar por mapa
