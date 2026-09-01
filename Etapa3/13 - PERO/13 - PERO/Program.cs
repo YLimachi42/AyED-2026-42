@@ -34,15 +34,20 @@ namespace _13___PERO
                 {
                     case 1:
                         // Punto 1: Registrar nueva misión
-                        misiones[cantidadMisiones, 0] = cantidadMisiones + 1;
-                        Console.Write("1_Hagwarts\n2_La casa del viejo\n3_El laboratorio\nIngrese el mapa para explorar: ");
-                        misiones[cantidadMisiones, 1] = int.Parse(Console.ReadLine());
-                        misiones[cantidadMisiones, 2] = rand.Next(1, 3);
-                        Console.Write("1_Bajo\n2_Medio\n3_Alto\n4_Imposible\n5_Muerte Segura\nIngrese el nivel de peligro: ");
-                        misiones[cantidadMisiones, 3] = int.Parse(Console.ReadLine());
-                        misiones[cantidadMisiones, 4] = 0;
-                        cantidadMisiones += 1;
-                        Console.WriteLine("\n¡Misión cargada con éxito!");
+                        if (cantidadMisiones <= 30)
+                        {
+                            misiones[cantidadMisiones, 0] = cantidadMisiones + 1;
+                            Console.Write("1_Hagwarts\n2_La casa del viejo\n3_El laboratorio\nIngrese el mapa para explorar: ");
+                            misiones[cantidadMisiones, 1] = int.Parse(Console.ReadLine());
+                            misiones[cantidadMisiones, 2] = rand.Next(1, 3);
+                            Console.Write("1_Bajo\n2_Medio\n3_Alto\n4_Imposible\n5_Muerte Segura\nIngrese el nivel de peligro: ");
+                            misiones[cantidadMisiones, 3] = int.Parse(Console.ReadLine());
+                            misiones[cantidadMisiones, 4] = 0;
+                            cantidadMisiones += 1;
+                            Console.WriteLine("\n¡Misión cargada con éxito!");
+                        }
+                        else { Console.WriteLine("¡Demasiada Misiones!"); }
+                        
                         break;
                     case 2:
                         // Punto 2: Ver todas las misiones
@@ -219,7 +224,11 @@ namespace _13___PERO
                             }
                         }
                         int promedio1 = promedioMapa1 / cantidadMapa1;
+                        int promedio2 = promedioMapa2 / cantidadMapa2;
+                        int promedio3 = promedioMapa3 / cantidadMapa3;
                         Console.Write("Promedio Hagwarts: " + promedio1);
+                        Console.Write("Promedio La Casa Del Viejo: " + promedio2);
+                        Console.Write("Promedio El Laboratorio: " + promedio3);
                         break;
                     case 7:
                         // Punto 7: Filtrar por mapa
