@@ -8,10 +8,8 @@ namespace _3___ElEterNota
 {
     class Program
     {
-        //Falta: Establecer limites (ej: admitir solo numeros mayores o iguales a 0)
-        //Mensajes aclaratorios en caso de que ningun refugio cumpla con la condicion
-        //Aclarar si hay mas de un refugio con mas recursos
-        //Advertir que solo se pueden ocupar refugios libres
+        //  FALTA //
+        //Simplificar en funciones
         static void Main(string[] args)
         {
             bool valido = true;
@@ -38,15 +36,40 @@ namespace _3___ElEterNota
                     case 1:
                         // Lógica para agregar refugio
                         refugios[cantidadRefugios, 0] = cantidadRefugios + 1;
-                        Console.Write("Ingrese la cantidad de personas que puede alojar: ");
-                        refugios[cantidadRefugios, 1] = int.Parse(Console.ReadLine());
-                        Console.Write("Ingrese la cantidad de suministros disponibles: ");
-                        refugios[cantidadRefugios, 2] = int.Parse(Console.ReadLine());
-                        Console.WriteLine("\nE qué zona se encuentra el refugio?");
-                        Console.WriteLine("1 - Norte\n2 - Sur\n3 - Oeste\n4 - Centro\n");
-                        refugios[cantidadRefugios, 3] = int.Parse(Console.ReadLine());
-                        Console.WriteLine("¿El refugio esta ocupado?\n1 - SI\n0 - NO\n");
-                        refugios[cantidadRefugios, 4] = int.Parse(Console.ReadLine());
+                        
+                        while (valido)
+                        {
+                            Console.Write("Ingrese la cantidad de personas que puede alojar: ");
+                            int capacidad = int.Parse(Console.ReadLine());
+                            if (capacidad >= 0) { refugios[cantidadRefugios, 1] = capacidad; valido = false; }
+                            else { Console.WriteLine("Número inválido, ingrese uno mayor a 0.\n"); }
+                        }
+                        valido = true;
+                        while (valido)
+                        {
+                            Console.Write("Ingrese la cantidad de suministros disponibles: ");
+                            int suministros = int.Parse(Console.ReadLine());
+                            if (suministros >= 0) { refugios[cantidadRefugios, 2] = suministros; valido = false; }
+                            else { Console.WriteLine("Número inválido, ingrese uno mayor a 0.\n"); }
+                        }
+                        valido = true;
+                        while (valido)
+                        {
+                            Console.WriteLine("\nEn qué zona se encuentra el refugio?");
+                            Console.WriteLine("1 - Norte\n2 - Sur\n3 - Oeste\n4 - Centro\n");
+                            int zonaComp = int.Parse(Console.ReadLine());
+                            if (zonaComp > 0 && zonaComp < 5) { refugios[cantidadRefugios, 3] = zonaComp; valido = false; }
+                            else { Console.WriteLine("Número inválido, ingrese uno entre 1 y 4\n"); }
+                        }
+                        valido = true;
+                        while (valido)
+                        {
+                            Console.WriteLine("¿El refugio esta ocupado?\n1 - SI\n0 - NO\n");
+                            int ocupado = int.Parse(Console.ReadLine());
+                            if (ocupado >= 0 && ocupado <= 1) { refugios[cantidadRefugios, 4] = ocupado; valido = false; }
+                            else { Console.WriteLine("Número inválido, ingrese uno entre 0 y 1\n"); }
+                        }
+                        valido = true;
                         Console.WriteLine("\nRefugio registrado correctamente.");
                         cantidadRefugios++;
                         break;
@@ -81,13 +104,21 @@ namespace _3___ElEterNota
                             }
                             Console.Write("\nIngrese el ID del refugio a ocupar: ");
                             int refugioOcupando = int.Parse(Console.ReadLine());
-                            for (int z = 0; z < cantidadRefugios; z++)
+                            if (refugios[refugioOcupando - 1, 4] == 1)
                             {
-                                if (refugios[z, 0] == refugioOcupando)
+                                Console.WriteLine("Ese refugo ya esta ocupado.");
+                            }
+                            else
+                            {
+                                for (int z = 0; z < cantidadRefugios; z++)
                                 {
-                                    refugios[z, 4] = 1;
+                                    if (refugios[z, 0] == refugioOcupando)
+                                    {
+                                        refugios[z, 4] = 1;
+                                    }
                                 }
                             }
+                            
                         }
                         break;
                     case 4:
@@ -109,6 +140,7 @@ namespace _3___ElEterNota
                     case 5:
                         // Lógica para refugio con más suministros
                         int masRecursos = refugios[0, 2];
+                        int cantidadMayores = 0;
                         for (int x = 0; x < cantidadRefugios; x++)
                         {
                             if(refugios[x, 2] > masRecursos) { masRecursos = refugios[x, 2]; }
@@ -118,6 +150,7 @@ namespace _3___ElEterNota
                         {
                             if (refugios[x, 2] == masRecursos)
                             {
+                                cantidadMayores++;
                                 Console.Write($"ID: {refugios[x, 0]} || Capacidad: {refugios[x, 1]} || Suministros: {refugios[x, 2]} || ");
                                 if (refugios[x, 3] == 1) { Console.Write("Zona: Norte (Congreso)"); }
                                 if (refugios[x, 3] == 2) { Console.Write("Zona: Sur (Constitución)"); }
@@ -127,6 +160,7 @@ namespace _3___ElEterNota
                                 else { Console.WriteLine(" || Estado: Libre"); }
                             }
                         }
+                        if (cantidadMayores > 1) { Console.WriteLine("Hay mas de un refugio con mayor cantidad de recursos"); }
                         break;
                     case 6:
                         // Lógica para promedio por zona
@@ -148,6 +182,7 @@ namespace _3___ElEterNota
                         break;
                     case 7:
                         // Lógica para filtrar por zona
+                        int cantidadPorZona = 0;
                         Console.WriteLine("1 - Norte\n2 - Sur\n3 - Oeste\n4 - Centro");
                         Console.Write("Ingrese una zona: ");
                         int zona = int.Parse(Console.ReadLine());
@@ -155,15 +190,20 @@ namespace _3___ElEterNota
                         {
                             if (refugios[x, 3] == zona)
                             {
-                                Console.Write($"ID: {refugios[x, 0]} || Capacidad: {refugios[x, 1]} || Suministros: {refugios[x, 2]} || ");
-                                if (refugios[x, 3] == 1) { Console.Write("Zona: Norte (Congreso)"); }
-                                if (refugios[x, 3] == 2) { Console.Write("Zona: Sur (Constitución)"); }
-                                if (refugios[x, 3] == 3) { Console.Write("Zona: Oeste (Flores)"); }
-                                if (refugios[x, 3] == 4) { Console.Write("Zona: Centro (Microcentro)"); }
-                                if (refugios[x, 4] == 1) { Console.WriteLine("|| Estado: Ocupado"); }
-                                else { Console.WriteLine(" || Estado: Libre"); }
+                                cantidadPorZona++;
+                                if (cantidadPorZona >= 1)
+                                {
+                                    Console.Write($"ID: {refugios[x, 0]} || Capacidad: {refugios[x, 1]} || Suministros: {refugios[x, 2]} || ");
+                                    if (refugios[x, 3] == 1) { Console.Write("Zona: Norte (Congreso)"); }
+                                    if (refugios[x, 3] == 2) { Console.Write("Zona: Sur (Constitución)"); }
+                                    if (refugios[x, 3] == 3) { Console.Write("Zona: Oeste (Flores)"); }
+                                    if (refugios[x, 3] == 4) { Console.Write("Zona: Centro (Microcentro)"); }
+                                    if (refugios[x, 4] == 1) { Console.WriteLine("|| Estado: Ocupado"); }
+                                    else { Console.WriteLine(" || Estado: Libre"); }
+                                }
                             }
                         }
+                        if (cantidadPorZona == 0) { Console.WriteLine("No hay refugios en esta zona."); }
                         break;
                     case 8:
                         Console.WriteLine("Saliendo del sistema... ¡Que la nevada no te atrape!");
