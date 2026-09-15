@@ -28,9 +28,9 @@ static class Level3
         int sumaUnos = 0;
         int rows = grid.GetLength(0);
         int cols = grid.GetLength(1);
-        if((0 <= row && row < rows) && (0 <= col && col < cols))
+        if ((0 <= row && row < rows) && (0 <= col && col < cols))
         {
-            if(row >= 0 && col >= 0)
+            if (row >= 0 && col >= 0)
             {
                 sumaUnos += grid[row + 1, col] + grid[row, col + 1];
                 if (row > 0 && col > 0)

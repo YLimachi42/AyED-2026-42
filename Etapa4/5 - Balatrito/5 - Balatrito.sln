@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Level1Lite", "Level1Lite\Level1Lite.csproj", "{050C558F-4381-47CA-9B67-338D9CCC9415}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "5 - Balatrito", "5 - Balatrito\5 - Balatrito.csproj", "{C4BB5CF0-AEB0-4C1C-8D95-8433CCD7095D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{050C558F-4381-47CA-9B67-338D9CCC9415}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{050C558F-4381-47CA-9B67-338D9CCC9415}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{050C558F-4381-47CA-9B67-338D9CCC9415}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{050C558F-4381-47CA-9B67-338D9CCC9415}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4BB5CF0-AEB0-4C1C-8D95-8433CCD7095D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4BB5CF0-AEB0-4C1C-8D95-8433CCD7095D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4BB5CF0-AEB0-4C1C-8D95-8433CCD7095D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4BB5CF0-AEB0-4C1C-8D95-8433CCD7095D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

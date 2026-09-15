@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Level2Lite")]
+[assembly: AssemblyTitle("5 - Balatrito")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Level2Lite")]
+[assembly: AssemblyProduct("5 - Balatrito")]
 [assembly: AssemblyCopyright("Copyright ©  2026")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("14558690-0722-4d6b-8437-b17e38d07b9e")]
+[assembly: Guid("c4bb5cf0-aeb0-4c1c-8d95-8433ccd7095d")]
 
 // Version information for an assembly consists of the following four values:
 //

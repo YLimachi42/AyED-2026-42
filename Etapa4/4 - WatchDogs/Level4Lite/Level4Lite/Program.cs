@@ -24,7 +24,7 @@ static class Level4
         {
             if (char.IsLetter(s[i]))
             {
-                if ( char.IsUpper(s[i]))
+                if (char.IsUpper(s[i]))
                 {
                     if (s[i] >= 'A' && s[i] <= 'Z') { resultado += (char)(s[i] + 1); }
                 }

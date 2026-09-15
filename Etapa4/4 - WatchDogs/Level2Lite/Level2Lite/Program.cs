@@ -20,14 +20,13 @@ static class Level2
     {
         // TODO: implementar
         int suma = 0;
-        for (int x = 0; x  < 9; x++)
+        for (int x = 0; x < 9; x++)
         {
             if (0 <= p[x] && p[x] <= 200)
             {
                 if (x % 3 == 0) { suma += p[x]; }
             }
         }
-        Console.WriteLine(suma);
         return suma; // <- reemplazar por tu solución
     }
 }
