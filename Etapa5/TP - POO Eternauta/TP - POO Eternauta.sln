@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TP - POO Eternauta", "TP - POO Eternauta\TP - POO Eternauta.csproj", "{F708DC39-DD6C-4B20-9F8C-284611261F0B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F708DC39-DD6C-4B20-9F8C-284611261F0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F708DC39-DD6C-4B20-9F8C-284611261F0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F708DC39-DD6C-4B20-9F8C-284611261F0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F708DC39-DD6C-4B20-9F8C-284611261F0B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

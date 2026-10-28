@@ -8,8 +8,6 @@ namespace _3___ElEterNota
 {
     class Program
     {
-        //  FALTA //
-        //Simplificar en funciones
         static void Main(string[] args)
         {
             bool valido = true;
