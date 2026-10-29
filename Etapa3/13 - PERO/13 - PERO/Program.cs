@@ -34,7 +34,7 @@ namespace _13___PERO
                 {
                     case 1:
                         // Punto 1: Registrar nueva misión
-                        if (cantidadMisiones <= 30)
+                        if (cantidadMisiones < misiones.GetLength(0))
                         {
                             misiones[cantidadMisiones, 0] = cantidadMisiones + 1;
                             Console.Write("1_Hagwarts\n2_La casa del viejo\n3_El laboratorio\nIngrese el mapa para explorar: ");
